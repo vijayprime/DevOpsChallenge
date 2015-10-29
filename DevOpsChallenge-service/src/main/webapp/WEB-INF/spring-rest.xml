@@ -10,17 +10,56 @@
     <bean id="participantInfoDao" class="com.vdsi.hackathon.devopschallenge.dao.ParticipantInfoDaoImpl">
     	<property name="dataSource" ref="dataSource"></property>
     </bean>
-    <bean id="dataSource"
+    <!--<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/devopschallenge" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
-	</bean>
+	</bean>-->
 	<bean id="ParticipantService" class="com.vdsi.hackathon.devopschallenge.service.ParticipantService">
     	<property name="participantInfoDao" ref="participantInfoDao"></property>
     </bean>
+    
+    <bean id="h2.web.server" class="org.h2.tools.Server"
+      factory-method="createWebServer" init-method="start">
+
+    <constructor-arg value="-web,-webAllowOthers,-webPort,8084"/>
+  </bean>
+
+  <bean id="h2.tcp.server" class="org.h2.tools.Server"
+      factory-method="createTcpServer" init-method="start" depends-on="h2.web.server">
+
+    <constructor-arg value="-tcp,-tcpAllowOthers,-tcpPort,9092"/>
+  </bean>
+
+  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+      destroy-method="close" depends-on="h2.tcp.server">
+  
+    <property name="driverClass" value="org.h2.Driver"/>
+    <property name="jdbcUrl" value="jdbc:h2:mem:volta;MODE=Oracle;DB_CLOSE_DELAY=1000;DB_CLOSE_ON_EXIT=FALSE"/>
+    <property name="user" value="sa"/>
+    <property name="password" value=""/>
+
+    <property name="maxPoolSize" value="20"/>
+    <property name="minPoolSize" value="5"/>
+    <property name="acquireIncrement" value="5"/>
+
+    <property name="maxConnectionAge" value="21600"/>
+    <property name="preferredTestQuery" value="select 1"/>
+  </bean>
+  
+  <bean id="sqlScriptProcessor"
+      class="com.vdsi.hackathon.devopschallenge.utils.SqlScriptProcessor">
+    <property name="dataSource" ref="dataSource" />
+    <property name="initOnStartup" value="true" />
+    <property name="sqlScripts">
+        <list>
+            <value>classpath:dbutils/createparticipantdb.sql</value>
+        </list>
+    </property>
+</bean>
 	
 
 </beans>
