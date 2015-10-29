@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class SampleService {
     public SampleResponse sayHello(String message) {
-        return new SampleResponse("hello " + message, "SUCCESS");
+        return new SampleResponse("hello vijay" + message, "SUCCESS");
     }
 }
