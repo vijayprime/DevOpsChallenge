@@ -4,8 +4,6 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.vdsi.hackathon.devopschallenge.model.Participant;
-import com.vdsi.hackathon.devopschallenge.model.SampleResponse;
-import com.vdsi.hackathon.devopschallenge.service.SampleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,14 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class SampleController {
 
-    @Autowired
-    private SampleService sampleService;
-
-    @RequestMapping(value = "/hello/{message}", method = RequestMethod.GET)
-    public @ResponseBody SampleResponse sayHello(@PathVariable String message) {
-        return sampleService.sayHello(message);
-    }
-    
     public void getParticipantsList() {
     	try {
 
