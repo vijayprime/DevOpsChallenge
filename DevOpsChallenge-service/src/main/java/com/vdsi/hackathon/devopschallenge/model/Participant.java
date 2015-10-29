@@ -1,5 +1,8 @@
 package com.vdsi.hackathon.devopschallenge.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Participant {
 	private String vzId;
 	private String firstName;
