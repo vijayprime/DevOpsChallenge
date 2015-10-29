@@ -26,7 +26,7 @@ public abstract class BasicAcceptanceConfiguration extends JUnitStory
         try
         {
             storyURL = new URL("file://" + System.getProperty("user.dir")
-                    + "/src/test/resources/stories/");
+                    + "/DevOpsChallenge-service/src/test/resources/stories/");
         }
         catch (MalformedURLException e)
         {
