@@ -1,7 +1,8 @@
-package com.idodevjobs.sample.service;
+package com.vdsi.hackathon.devopschallenge.service;
 
-import com.idodevjobs.sample.model.SampleResponse;
 import org.springframework.stereotype.Service;
+
+import com.vdsi.hackathon.devopschallenge.model.SampleResponse;
 
 @Service
 public class SampleService {

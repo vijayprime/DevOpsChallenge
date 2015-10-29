@@ -1,4 +1,4 @@
-package com.idodevjobs.sample.model;
+package com.vdsi.hackathon.devopschallenge.model;
 
 public class SampleResponse {
     private String message;

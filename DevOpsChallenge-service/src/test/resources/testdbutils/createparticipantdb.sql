@@ -1,0 +1,2 @@
+create table participant(vzid varchar(20),firstname varchar(20),lastname varchar(20),empid varchar(10),
+teamname varchar(20),portfolio varchar(20),platform varchar(20),mobileno varchar(20),challengeid varchar(5),foodpref varchar(20), PRIMARY KEY (vzid));

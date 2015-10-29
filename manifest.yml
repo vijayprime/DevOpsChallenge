@@ -4,3 +4,7 @@ applications:
   memory: 512M # Amount of memory to be allotted to the Application
   host: DevOpsChallenge # Subdomain to be allotted to the application.
   path: DevOpsChallenge-web/target/DevOpsChallenge.war # path to the war file
+- name: DevOpsChallengeService # Name of the application
+  memory: 512M # Amount of memory to be allotted to the Application
+  host: DevOpsChallengeService # Subdomain to be allotted to the application.
+  path: DevOpsChallenge-service/target/DevOpsChallengeService.war # path to the war file
