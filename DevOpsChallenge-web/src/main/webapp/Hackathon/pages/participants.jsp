@@ -3,20 +3,27 @@
 <html>
 <head></head>
 <body>
-	<h1>Hackathon Participants List</h1>
+	<h1>Participants List</h1>
 
 	<s:form action="participantsinfo">
-		<s:iterator value="participantslist">
 		<table>
 			<tr>
-				<td><s:property value="vzId"/></td>
-				<td><s:property value="firstName"/></td>
-				<td><s:property value="lastName"/></td>
-				<td><s:property value="teamName"/></td>
-				<td><s:submit name="View Info"/></td>
-			<tr>
+				<th>VzId</th>
+				<th>FirstName</th>
+				<th>LastName</th>
+				<th>TeamName</th>
+				<th>View Info</th>
+			</tr>
+			<s:iterator value="participants">
+				<tr>
+					<td><s:property value="vzId" /></td>
+					<td><s:property value="firstName" /></td>
+					<td><s:property value="lastName" /></td>
+					<td><s:property value="teamName" /></td>
+					<td><s:submit name="View Info" /></td>
+				<tr>
+			</s:iterator>
 		</table>
-		</s:iterator>
 	</s:form>
 </body>
 </html>

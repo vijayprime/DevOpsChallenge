@@ -24,7 +24,7 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>javax.servlet.jsp-api</artifactId>
 			<version>2.3.1</version>
@@ -47,6 +47,12 @@
 			<artifactId>jersey-json</artifactId>
 			<version>1.17.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.4</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -67,12 +73,10 @@
 				<configuration>
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-							<port>8180</port>
+							<port>8187</port>
 							<maxIdleTime>60000</maxIdleTime>
 						</connector>
 					</connectors>
-					<stopKey>STOP</stopKey>
-					<stopPort>9999</stopPort>
 
 				</configuration>
 
