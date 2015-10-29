@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="user" namespace="/Hackathon" extends="struts-default">
+		<action name="participants" class="com.idodevjobs.sample.action.ParticipantsAction">
+			<result name="success">pages/participants.jsp</result>
+		</action>
+		<action name="participantsinfo" class="com.idodevjobs.sample.action.ParticipantsInfoAction">
+			<result name="success">pages/participantsinfo.jsp</result>
+		</action>
+	</package>
+
+</struts>
